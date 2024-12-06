@@ -1,0 +1,5 @@
+  // if(argc != 2)
+  // {
+  //   cout << "Usage: " << argv[0] << " <input_file>" << endl;
+  //   return 1;
+  // }

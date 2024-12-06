@@ -24,7 +24,7 @@ int locate(Matchstick ms, vector<Matchstick> &tab, int end)
     {
       pos = pos + move;
     }
-    else if (ms == tab[pos]) break;
+    else if (ms == tab[pos]) return pos;
   }
   return pos;
 }
@@ -43,15 +43,26 @@ void insertionSort(vector<Matchstick> &tab)
   }
 }
 
+void exchange(vector<Matchstick> &tab,int pos1,int pos2){
+  Matchstick temp = tab[pos1];
+  tab[pos1] = tab[pos2];
+  tab[pos2] = temp;
+}
+
 void bubbleSort(vector<Matchstick> &tab)
 {
-  for (int i = 1; i < tab.size();++i)
+  bool sorted = false;
+  while (!sorted)
   {
-    if(tab[i] < tab[i-1])
+    sorted = true;
+    for (int i = 0; i < tab.size() - 1; ++i)
     {
-      Matchstick temp = tab[i];
-      tab[i] = tab[i-1];
-      tab[i-1] = temp;
+      if (tab[i] > tab[i + 1])
+      {
+        exchange(tab, i, i + 1);
+        sorted = false;
+      }
     }
   }
 }
+

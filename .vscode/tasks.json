@@ -1,51 +1,28 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build Debug",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--build", "${workspaceFolder}/build/debug"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "dependsOn": "Configure Debug"
-        },
-        {
-            "label": "Build Release",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--build", "${workspaceFolder}/build/release"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": false
-            },
-            "problemMatcher": [],
-            "dependsOn": "Configure Release"
-        },
-        {
-            "label": "Configure Debug",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--preset", "debug"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "Configure Release",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--preset", "release"
-            ],
-            "problemMatcher": []
-        }
-    ]
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++.exe 生成活动文件",
+      "command": "C:\\Program Files\\w64devkit\\bin\\g++.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "调试器生成的任务。"
+    }
+  ],
+  "version": "2.0.0"
 }
