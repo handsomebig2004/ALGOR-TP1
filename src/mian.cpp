@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 {
   vector<Matchstick> matchsticks;
   matchsticks = readMatchsticksFromFile(argv[1]);
+
   insertionSort(matchsticks);
   writeMatchsticksToFile("sorted.txt",matchsticks);
 }

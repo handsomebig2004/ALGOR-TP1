@@ -12,6 +12,7 @@ vector<Matchstick> readMatchsticksFromFile(string filename) {
   int numOfMatch;
   infile >> numOfMatch;
   vector<Matchstick> matchsticks;
+  // printf("%d",numOfMatch);
   for(int i = 0;i<numOfMatch;i++)
   {
     infile >> matchsticks[i];

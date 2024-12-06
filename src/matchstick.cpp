@@ -5,8 +5,10 @@ using namespace std;
 #include "matchstick.h"
 
 void Match_create(Matchstick Match_name, int size, int color) {
+    printf("Matchstick created\n");
     Match_name.size = size;
     Match_name.color = color;
+
 }
 
 std::istream& operator>>(std::istream& is, Matchstick& ms)
