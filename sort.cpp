@@ -1,14 +1,8 @@
 using namespace std;
+#include <iostream>
 #include <vector>
 #include "matchstick.h"
-
-bool operator<=(const Matchstick& other) const {
-    return !(*this > other);
-}
-
-bool operator>=(const Matchstick& other) const {
-    return !(*this < other);
-}
+#include <math.h>
 
 void shiftRight(vector<Matchstick> &tab, int pos, int end)
 {
@@ -19,14 +13,20 @@ void shiftRight(vector<Matchstick> &tab, int pos, int end)
 }
 int locate(Matchstick ms, vector<Matchstick> &tab, int end)
 {
-  for (int i = 0; i < end; ++i)
+  int pos = floor(end / 2);
+  for (int move = floor(end / 2); move > 0;move = floor(move / 2))
   {
-    if (ms < tab[i])
+    if (ms < tab[pos])
     {
-      return i;
+      pos = pos - move;
     }
+    else if (ms > tab[pos])
+    {
+      pos = pos + move;
+    }
+    else if (ms == tab[pos]) break;
   }
-  return end;
+  return pos;
 }
 void insertionSort(vector<Matchstick> &tab)
 {
@@ -43,3 +43,15 @@ void insertionSort(vector<Matchstick> &tab)
   }
 }
 
+void bubbleSort(vector<Matchstick> &tab)
+{
+  for (int i = 1; i < tab.size();++i)
+  {
+    if(tab[i] < tab[i-1])
+    {
+      Matchstick temp = tab[i];
+      tab[i] = tab[i-1];
+      tab[i-1] = temp;
+    }
+  }
+}
